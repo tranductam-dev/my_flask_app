@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+
+{% block title %} Rooms Checked {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/rooms_checked.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Results of checking the number of available rooms</h2>
+    {% for room in rooms_checked %}
+        <div class="room-card">
+            <div class="room-image">
+                <img src="{{ url_for('static', filename=room['room_type']|lower + '.jpg') }}" alt="{{ room['room_type'] }}">
+            </div>
+            <div class="room-details">
+                <h3>{{ room['room_type'] }}</h3>
+                <p>Number room: {{ room['room_number'] }}</p>
+                <p>Price: {{ room['room_price'] }} USD</p>
+            
+                <form action="{{url_for('make_a_reservation')}}" method="POST">
+                    <input type="hidden" name="room_number" value="{{ room['room_number'] }}">
+                    <button type="submit">Make a reservation</button>
+                </form>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+/* booking_history.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Phần chứa danh sách phòng đã đặt */
+.content {
+    padding: 20px;
+}
+
+/* Card cho từng phòng */
+.room-card {
+    display: flex; /* Sử dụng flexbox để sắp xếp ảnh và chi tiết phòng */
+    background-color: #f9f9f9; /* Màu nền cho card */
+    border: 1px solid #ccc; /* Đường viền cho card */
+    border-radius: 5px; /* Bo tròn góc cho card */
+    margin: 10px 0; /* Khoảng cách giữa các card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho card */
+    overflow: hidden; /* Ẩn phần tràn ra ngoài */
+}
+
+/* Ảnh phòng */
+.room-image {
+    flex: 1; /* Căn đều chiều rộng giữa ảnh và chi tiết phòng */
+}
+
+.room-image img {
+    width: 100%; /* Ảnh chiếm toàn bộ chiều rộng */
+    height: auto; /* Chiều cao tự động */
+}
+
+/* Chi tiết phòng */
+.room-details {
+    flex: 2; /* Căn rộng hơn cho chi tiết */
+    padding: 20px; /* Padding cho nội dung */
+}
+
+/* Nút hủy phòng */
+.cancel-room {
+    margin-top: 15px; /* Khoảng cách trên nút hủy */
+}
+
+.cancel-room button {
+    background-color: #ff4d4d; /* Màu nền cho nút hủy */
+    color: white; /* Màu chữ */
+    border: none; /* Không có đường viền */
+    padding: 10px 15px; /* Padding cho nút */
+    border-radius: 5px; /* Bo tròn góc cho nút */
+    cursor: pointer; /* Hiển thị con trỏ khi hover */
+}
+
+.cancel-room button:hover {
+    background-color: #e60000; /* Màu nền khi hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .room-card {
+        flex-direction: column; /* Đổi hướng thành cột trên màn hình nhỏ */
+    }
+
+    .room-image {
+        width: 100%; /* Ảnh chiếm toàn bộ chiều rộng */
+    }
+}

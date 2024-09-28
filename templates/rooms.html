@@ -1,0 +1,63 @@
+{% extends 'home.html' %}
+
+{% block title %} Our Rooms {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/rooms.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Our Rooms</h2>
+
+        <div class="room-card">
+            <div class="room-image">
+                <img src="/static/Superior.jpg" alt="Superior Room">
+            </div>
+            <div class="room-details">
+                <h3>Superior</h3>
+                <p>Price: 150 USD</p>
+                <p>
+                    {% if session.get('check_in_date') and session.get('check_in_date') %}
+                        <a href="{{url_for('rooms_checked')}}">Make a reservation</a>
+                    {% else %}
+                        <a href="{{url_for('home')}}">Make a reservation</a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="room-card">
+            <div class="room-image">
+                <img src="/static/Deluxe.jpg" alt="Deluxe Room">
+            </div>
+            <div class="room-details">
+                <h3>Deluxe</h3>
+                <p>Price: 200 USD</p>
+                <p>
+                    {% if session.get('check_in_date') and session.get('check_in_date') %}
+                        <a href="{{url_for('rooms_checked')}}">Make a reservation</a>
+                    {% else %}
+                        <a href="{{url_for('home')}}">Make a reservation</a>
+                    {% endif %}
+                </p>
+                </form>
+            </div>
+        </div>
+        <div class="room-card">
+            <div class="room-image">
+                <img src="/static/Executive.jpg" alt="Executive Room">
+            </div>
+            <div class="room-details">
+                <h3>Executive</h3>
+                <p>Price: 300 USD</p>
+                <p>
+                    {% if session.get('check_in_date') and session.get('check_in_date') %}
+                        <a href="{{url_for('rooms_checked')}}">Make a reservation</a>
+                    {% else %}
+                        <a href="{{url_for('home')}}">Make a reservation</a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+</div>
+{% endblock %}

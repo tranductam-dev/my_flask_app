@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50; /* Màu nền cho header */
+    color: white; /* Màu chữ */
+    padding: 10px 20px; /* Padding cho header */
+    display: flex; /* Sử dụng flexbox */
+    justify-content: space-between; /* Căn giữa nội dung */
+    align-items: center; /* Căn chỉnh theo chiều dọc */
+}
+
+/* Navbar */
+nav ul {
+    list-style: none; /* Không có dấu chấm cho danh sách */
+    padding: 0; /* Bỏ padding */
+    display: flex; /* Sử dụng flexbox cho danh sách */
+}
+
+nav ul li {
+    margin: 0 15px; /* Khoảng cách giữa các mục */
+}
+
+nav ul li a {
+    color: white; /* Màu chữ cho liên kết */
+    text-decoration: none; /* Không gạch chân */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}
+
+/* Phần kiểm tra phòng trống */
+#check-availability {
+    padding: 20px; /* Padding cho phần kiểm tra phòng */
+    background-color: #f4f4f4; /* Màu nền cho phần này */
+}
+
+#check-availability h2 {
+    margin-top: 0; /* Bỏ margin trên cùng */
+}
+
+form {
+    display: flex; /* Sử dụng flexbox cho form */
+    flex-direction: column; /* Căn theo chiều dọc */
+}
+
+label {
+    margin-bottom: 5px; /* Khoảng cách dưới label */
+}
+
+input[type="date"], button {
+    padding: 10px; /* Padding cho input và button */
+    margin-bottom: 10px; /* Khoảng cách dưới các trường input */
+    border: 1px solid #ccc; /* Đường viền cho input */
+    border-radius: 5px; /* Bo tròn góc cho input */
+}
+
+button {
+    background-color: #4CAF50; /* Màu nền cho button */
+    color: white; /* Màu chữ cho button */
+    border: none; /* Không có đường viền */
+    cursor: pointer; /* Con trỏ khi hover */
+}
+
+button:hover {
+    background-color: #45a049; /* Màu nền khi hover */
+}
+
+/* Phần hiển thị các loại phòng */
+#rooms {
+    display: flex; /* Sử dụng flexbox */
+    justify-content: space-around; /* Căn đều các phòng */
+    flex-wrap: wrap; /* Để các phòng xuống dòng khi không đủ chỗ */
+    padding: 20px; /* Padding cho phần phòng */
+}
+
+.room {
+    border: 1px solid #ccc; /* Đường viền cho phòng */
+    border-radius: 5px; /* Bo tròn góc cho phòng */
+    margin: 10px; /* Khoảng cách giữa các phòng */
+    text-align: center; /* Căn giữa nội dung */
+    width: calc(33% - 20px); /* Chiều rộng cho mỗi phòng */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho phòng */
+}
+
+.room img {
+    width: 100%; /* Đảm bảo ảnh đầy đủ chiều rộng */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+    border-radius: 5px 5px 0 0; /* Bo tròn góc trên cho ảnh */
+}
+
+.price {
+    background-color: #f4f4f4; /* Màu nền cho giá */
+    padding: 10px; /* Padding cho giá */
+}
+/* online_payment.css */
+
+/* Định dạng cho flash message */
+.flash-message {
+    text-align: center; /* Căn giữa */
+    color: blue; /* Màu chữ xanh dương */
+    font-size: 1.5em; /* Kích thước chữ lớn hơn */
+    margin: 20px 0; /* Khoảng cách trên và dưới */
+    padding: 10px; /* Padding xung quanh */
+    background-color: #f0f8ff; /* Màu nền nhạt (tuỳ chọn) */
+    border: 1px solid #007bff; /* Đường viền xanh dương (tuỳ chọn) */
+    border-radius: 5px; /* Bo tròn góc (tuỳ chọn) */
+}
+.flash-message ul {
+    list-style-type: none;  
+    margin: 0;
+    padding: 0;
+}
+/* Footer */
+footer {
+    background-color: #333; /* Màu nền cho footer */
+    color: white; /* Màu chữ cho footer */
+    text-align: center; /* Căn giữa nội dung */
+    padding: 10px 0; /* Padding cho footer */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #rooms {
+        flex-direction: column; /* Đổi hướng cho phòng trên màn hình nhỏ */
+        align-items: center; /* Căn giữa */
+    }
+
+    .room {
+        width: 90%; /* Chiều rộng cho phòng trên màn hình nhỏ */
+    }
+
+    nav ul {
+        flex-direction: column; /* Đổi hướng cho navbar trên màn hình nhỏ */
+        align-items: center; /* Căn giữa */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Khoảng cách giữa các mục trong navbar */
+    }
+}

@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+
+{% block title %} Boking History {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/booking_history.css">
+{% endblock %}
+
+
+{% block content %}
+
+    {% for room in history_booking %}
+    <div class="room-card">
+        <div class="room-image">
+            <img src="{{ url_for('static', filename=room['room_type']|lower + '.jpg') }}" alt="{{ room['room_type'] }}">
+        </div>
+        <div class="room-details">
+            <h3>{{ room['room_type'] }}</h3>
+            <p>Number room: {{ room['room_number'] }}</p>
+            <p>Check_in Date: {{ room['check_in_date'] }}</p>
+            <p>Check_out Date: {{ room['check_out_date'] }}</p>
+            
+            <div class="cancel-room">
+                <form action="{{url_for('cancel_room')}}" method="POST">
+                    <input type="hidden" name="room_number" value="{{ room['room_number'] }}">
+                    <button type="submit">Cancel the room</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <h3>{{message}}</h3>
+    {% endfor %}
+{% endblock %}

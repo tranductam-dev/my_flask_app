@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="/static/home.css">
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+
+    <!-- Phần 1: Tên khách sạn và Sidebar -->
+    <header>
+        <h1>My Hotel</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+        
+                {% if session.get('loggedin') %}
+                    <!-- Nút Account khi đã đăng nhập -->
+                    <ul>
+                        <li><a href="{{ url_for('history_booking') }}">Booking History</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    </ul>
+                {% else %}
+                    <!-- Nút Login khi chưa đăng nhập -->
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    <!-- Phần 2: Kiểm tra phòng trống -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flash-message">
+            {% for category, message in messages %}
+                <li class=" {{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    <section id="check-availability">
+        <h2>Check Room Availability</h2>
+        <form action="{{url_for('check_availability')}}" method="POST">
+            <label for="check_in_date">Arrival Date:</label>
+            <input type="date" id="check_in_date" name="check_in_date" required>
+                
+            <label for="check_out_date">Departure Date:</label>
+            <input type="date" id="check_out_date" name="check_out_date" required>
+
+            <button type="submit">Check Availability</button>
+            </form>
+    </section>
+
+    <!-- Phần 3: Hiển thị 3 loại phòng -->
+    <section id="rooms">
+        <div class="room">
+            <img src="/static/executive.jpg" alt="Executive Room">
+            <div class="price">$300/night</div>
+        </div>
+        <div class="room">
+            <img src="/static/deluxe.jpg" alt="Deluxe Room">
+            <div class="price">$200/night</div>
+        </div>
+        <div class="room">
+            <img src="/static/superior.jpg" alt="Superior Room">
+            <div class="price">$150/night</div>
+        </div>
+    </section>
+
+    <!-- Phần 4: Liên hệ và địa chỉ -->
+    <footer>
+        <p>Contact us: 123-456-7890 | Address: 123 Hotel St., City, Country</p>
+    </footer>
+    {% endblock %}
+
+</body>
+</html>
